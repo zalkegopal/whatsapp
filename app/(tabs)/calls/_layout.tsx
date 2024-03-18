@@ -23,6 +23,22 @@ const Layout = () => {
           ),
         }}
       />
+      <Stack.Screen
+        name='new-chat'
+        options={{
+          title: 'Calls',
+          headerLargeTitle: true,
+          headerStyle: {
+            backgroundColor: Colors.background,
+          },
+          headerBackVisible: true,
+          headerRight: () => (
+            <TouchableOpacity>
+              <Ionicons name='call-outline' size={30} color={Colors.primary} />
+            </TouchableOpacity>
+          ),
+        }}
+      />
     </Stack>
   );
 };

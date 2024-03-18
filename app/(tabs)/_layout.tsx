@@ -1,10 +1,12 @@
 import Colors from '@/constants/Colors';
 import { Ionicons, MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
-import { Tabs } from 'expo-router';
+import { Tabs, useSegments } from 'expo-router';
 import React from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 const Layout = () => {
+  const segments = useSegments();
+
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <Tabs
@@ -24,9 +26,13 @@ const Layout = () => {
           name='chats'
           options={{
             title: 'Chats',
+            headerShown: false,
             tabBarIcon: ({ size, color }) => (
               <Ionicons name='chatbubbles' size={size} color={color} />
             ),
+            tabBarStyle: {
+              display: segments[2] === '[id]' ? 'none': 'flex'
+            }
           }}
         />
         <Tabs.Screen
